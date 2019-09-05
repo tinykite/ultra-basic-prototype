@@ -6,7 +6,9 @@ body, section, article, div, h1, h2, h3, h4, h5, p {
 p {
 	font-family: "Operator Mono SSm A", "Operator Mono SSm B";
   font-style: normal;
-  font-weight: 400;
+	font-weight: 400;
+	color: #19224F;
+	line-height: 1.5;
 	
 	& + & {
 		margin-top: 1rem;
@@ -80,8 +82,6 @@ img {
 
 .c-section__anim--weather {
   position: absolute;
-  // top: 20vh;
-  // left: 20vh;
   overflow: hidden;
 }
 
@@ -240,6 +240,10 @@ img {
 
 .t-darkSeafoam {
 	background: #113C46;
+}
+
+.t-seaFoam {
+	background: #E1ECE0;
 }
 
 .u-visuallyHidden {

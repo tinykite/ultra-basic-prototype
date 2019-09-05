@@ -1,0 +1,33 @@
+.section3 {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	padding-top: 18rem;
+	padding-bottom: 7.5rem;
+	align-items: start;
+	overflow: hidden;
+	position: relative;
+	
+	&__text {
+		grid-column: 6 / 10;
+	}
+
+	&__illustration {
+		grid-column: 4;
+	}
+}
+
+.c-section__animWave {
+	position: absolute;
+	top: 0;
+	transform: translateY(-80px);
+}
+
+.c-section__anim.c-section__animWave.c-section__anim--active {
+	animation: waveShift 6s linear forwards;
+}
+
+@keyframes waveShift {
+	100% {
+		transform: translateX(-30px) translateY(15px) scale(1.25) rotate(8deg);
+	}
+}

@@ -1,0 +1,15 @@
+.section2 {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	padding-top: 12rem;
+	padding-bottom: 7.5rem;
+	align-items: start;
+	
+	&__text {
+		grid-column: 6 / 10;
+	}
+
+	&__illustration {
+		grid-column: 4;
+	}
+}
