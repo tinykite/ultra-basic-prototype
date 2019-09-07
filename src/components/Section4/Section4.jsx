@@ -3,7 +3,7 @@ import './Section4.scss';
 
 const Section4 = () => {
 	return(
-		<section className="section4 t-seaFoam">
+		<section className="section4 t-beige">
 			    <svg className="section4__illustration"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"

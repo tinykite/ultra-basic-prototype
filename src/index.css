@@ -1,0 +1,72 @@
+body, section, article, div, h1, h2, h3, h4, h5, p {
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	font-family: "Operator Mono SSm A", "Operator Mono SSm B";
+  font-style: normal;
+	font-weight: 400;
+	color: #19224F;
+	line-height: 1.5;
+	
+	& + & {
+		margin-top: 1rem;
+	}
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+img {
+	max-width: 100%;
+}
+
+.t-white {
+	background: #ffffff;
+}
+
+.t-pink {
+	background: #F7EAE9;
+}
+
+.t-blue {
+	background: #3C5895;
+}
+
+.t-deepBlue {
+	background: #19224F;
+}
+
+.t-black {
+	background: #000;
+}
+
+.t-sand {
+	background: #F2DDD5;
+}
+
+.t-beige {
+	background: #F7F2EF;
+}
+
+.t-darkSeafoam {
+	background: #113C46;
+}
+
+.t-beige {
+	background: #DBBD7F;
+}
+
+.u-visuallyHidden {
+	position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.u-colorInverse {
+  color: #ffffff;
+}

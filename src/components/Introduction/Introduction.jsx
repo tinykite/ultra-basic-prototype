@@ -1,6 +1,5 @@
 import React from 'react';
-import introductionillustration from './introductionillustration.svg'
-import './Introduction.scss';
+import './introduction.scss';
 
 const Introduction = () => {
 	return (

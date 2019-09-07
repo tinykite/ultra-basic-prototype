@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 import Introduction from './components/Introduction/Introduction';
 import Section1 from './components/Section1/Section1';
 import Section2 from './components/Section2/Section2';
@@ -13,8 +14,6 @@ function App() {
 			<Section1 />
 			<Section2 />
 			<Section3 />
-			<Section4 />
-			<Section5 />
 		</div>
 	)
 }

@@ -1,11 +1,22 @@
 import React from 'react';
 import './Section3.scss';
+import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
 const Section3 = () => {
+  const [ref, inView, entry] = useInView({
+    threshold: 0.25,
+  })
+
+  const variants = {
+		forwards: { translateX: -30, translateY: -15, scale: 1.25, rotate: 8 },
+		backwards: { translateY: -70, translateX: -10
+		}
+	}
+
 	return (
 		<section className="section3 t-pink">
-      <svg className="c-section__anim c-section__animWave"
+      <motion.svg className="section3__wave" ref={ref} animate={inView && "forwards" } initial={"backwards"} transition={{ yoyo: Infinity, ease: "easeOut", duration: 8}}  variants={variants}
       xmlns="http://www.w3.org/2000/svg"
       data-name="Layer 1"
       viewBox="0 0 2753 177" width="2753" height="177"
@@ -25,8 +36,8 @@ const Section3 = () => {
         fill="#fff"
         d="M2753 0c-78.52 91.58-156.93 117.57-190 126-65.24 16.63-149.34 14.62-178 14-87-1.88-90.73-11.37-203-18-84.17-5-127.39-7.28-183 1-62.4 9.29-58.9 18.93-147 36-53.65 10.4-103.94 19.84-171 18-35.62-1-78.09-1.77-129-17-98.88-29.58-97.44-73.43-162-81-74.68-8.75-82.59 49.23-202 59-28.64 2.34-80.16 3.26-126 2-30.11-.83-48.73-2.32-54-2.8-42.13-3.79-65.68-10.28-149-15.2-84.17-5-127.39-7.28-183 1-62.4 9.29-58.9 18.93-147 36-53.65 10.4-103.94 19.84-171 18-37.37-1-78-2.14-129-17-56.23-16.38-72.87-34.25-123-43-43.32-7.56-80.31-2.84-104 2L0 0z"
       />
-    </svg>
-  <motion.svg animate={{ opacity: 1 }} initial={ {opacity: 0} } transition={{ duration: 5 }} className="section3__illustration" xmlns="http://www.w3.org/2000/svg" width="345" height="293" viewBox="0 0 345 293">
+    </motion.svg>
+  <motion.svg className="section3__illustration" xmlns="http://www.w3.org/2000/svg" width="345" height="293" viewBox="0 0 345 293">
   <g fill="#19224F" fillRule="evenodd">
     <circle cx="274" cy="88" r="71"/>
     <circle cx="58" cy="58" r="58" transform="translate(0 18)"/>
@@ -46,11 +57,11 @@ const Section3 = () => {
     </g>
   </g>
   </motion.svg>
-			<motion.div animate={{ opacity: 1 }} initial={ {opacity: 0} } transition={{ duration: 5 }} class="section3__text">
-				<p className="">Coffee is a crop. Not entirely unlike wine. It has nuanced flavor that is dependent on many  interlated factors: from weather conditions to soil quality and even growing elevation. </p>
-			  <p className="">But before waxing too poetic about its similarity to wine, however, it should be noted that coffee is also kind of a lot like toast. It gets stale.</p>
-				<p className="">The heady aromas and complex flavor can deteriorate over time — leaving a muddier, more stale experience behind that says nothing about terroir or something else clever.  </p>
-			</motion.div>
+			<div className="section3__text-box">
+				<p className="section3__text">Coffee is a crop. Not entirely unlike wine. It has nuanced flavor that is dependent on many  interlated factors: from weather conditions to soil quality and even growing elevation. </p>
+			  <p className="section3__text">But before waxing too poetic about its similarity to wine, however, it should be noted that coffee is also kind of a lot like toast. It gets stale.</p>
+				<p className="section3__text">The heady aromas and complex flavor can deteriorate over time — leaving a muddier, more stale experience behind that says nothing about terroir or something else clever.  </p>
+			</div>
 		</section>
 	)
 }
