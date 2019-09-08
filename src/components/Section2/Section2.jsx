@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 const Section2 = () => {	
   const [ref, inView, entry] = useInView({
-    threshold: 0.25,
+    threshold: 0,
 	})
 
 	const variants = {
@@ -14,13 +14,13 @@ const Section2 = () => {
 	}
 
 	const wave = {
-		forwards: { translateX: -30, translateY: -15, scale: 1.25, rotate: 8 },
-		backwards: { translateX: -10, translateY: -70, scale: 1, rotate: 0 }
+		forwards: { translateX: -30, translateY: 0, scale: 1.25, rotate: 6 },
+		backwards: { translateY: -60, translateX: -10 }
 	}
 
 	return (
 		<section className="section2">
-      <motion.svg className="section2__wave" ref={ref} animate={inView && "forwards" } initial={"backwards"} transition={{ yoyo: Infinity, ease: "easeOut", duration: 6}}  variants={wave}
+      <motion.svg className="section2__wave"  ref={ref} animate={inView && "forwards" } initial={"backwards"} transition={{ ease: "linear", duration: 5}}  variants={wave}
       xmlns="http://www.w3.org/2000/svg"
       data-name="Layer 1"
       viewBox="0 0 2753 177" width="2753" height="177"
@@ -42,17 +42,19 @@ const Section2 = () => {
       />
     </motion.svg>
 			<motion.svg className="section2__illustration coffee-particles" xmlns="http://www.w3.org/2000/svg" width="124" height="346" viewBox="0 0 124 346">
-		  <g className="cofeee-particles__bits" fill="#19224F" fill-rule="evenodd">
+		  <motion.g className="cofeee-particles__bits" fill="#19224F" fill-rule="evenodd">
 		    <path className="top" d="M0 0h121c-6.538 26.958-31.144 47-60.5 47S6.538 26.958 0 0z"/>
 		    <circle className="middle" cx="62" cy="140" r="62"/>
 				<path className="bottomLeft" d="M51.596 242v103.924C23.1 345.924 0 322.66 0 293.962 0 265.264 23.1 242 51.596 242z"/>
 			  <path className="bottomTopRight"  d="M72.05 242.183h51.962c0 28.496-23.264 51.596-51.962 51.596v-51.596z"/>
 			  <path className="bottomBottomRight" d="M72.05 345.74v-51.595c28.698 0 51.962 23.1 51.962 51.596H72.05z"/>
-			</g>
+			</motion.g>
 		  </motion.svg>
 			<motion.div ref={ref} className="section2__text" transition={{duration: 10}}
       variants={variants}>
 				<div class="section2__text-box">
+					<p className="section2__subtitle">Ultra Basic Tip #1</p>
+					<h2 className="section2__heading">Tasting Notes Aren't Bullshit</h2>
 				  <p className="section2__text">I once accidentally made a cup of Aeropress coffee at work with an intense, milk-and-honey kind of sweetness. </p>
 			    <p className="section2__text">It was a kind of unexpected, aggressive natural sweetness that made me feel like I'd discovered some hidden insight into the dark side of the moon — and might never again question the hyperbolic vocabulary used to describe the terroir of carefully grown, microlots of coffee.</p>
 				  <p className="section2__text">After two cups of a similar sweetness, I couldn't replicate it. But I think it did help me more viscerally understand coffee.</p>

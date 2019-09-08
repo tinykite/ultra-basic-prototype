@@ -4,15 +4,9 @@ body, section, article, div, h1, h2, h3, h4, h5, p {
 }
 
 p {
-	font-family: "Operator Mono SSm A", "Operator Mono SSm B";
-  font-style: normal;
-	font-weight: 400;
+	font-family: pt mono;
 	color: #19224F;
 	line-height: 1.5;
-	
-	& + & {
-		margin-top: 1rem;
-	}
 }
 
 html {
@@ -28,7 +22,7 @@ img {
 }
 
 .t-pink {
-	background: #F7EAE9;
+	background: #FFCEB9;
 }
 
 .t-blue {
@@ -47,16 +41,13 @@ img {
 	background: #F2DDD5;
 }
 
-.t-beige {
-	background: #F7F2EF;
-}
 
 .t-darkSeafoam {
 	background: #113C46;
 }
 
 .t-beige {
-	background: #DBBD7F;
+	background: rgba(255, 222, 196, 1);
 }
 
 .u-visuallyHidden {

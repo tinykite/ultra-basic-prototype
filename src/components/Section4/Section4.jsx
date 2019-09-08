@@ -4,6 +4,12 @@ import './Section4.scss';
 const Section4 = () => {
 	return(
 		<section className="section4 t-beige">
+              <svg className="section4__wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 74" width="1440" height="74">
+      <path
+        fill="#FFCEB9"
+        d="M353.264 36.678C541.214 36.678 541.214 74 729.165 74c187.959 0 187.959-37.322 375.918-37.322C1293.04 36.678 1293.04 74 1481 74V0H0c110.213 24.452 227.967 36.678 353.264 36.678z"
+      />
+    </svg>
 			    <svg className="section4__illustration"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -43,12 +49,12 @@ const Section4 = () => {
         />
       </g>
     </svg>
-			<div class="section4__text">
-			  <h2>HOW TO BUY COFFEE BEANS</h2>
-				<h3>Look for a Roast Date</h3>
-				<p className="">Coffee is a crop. Not entirely unlike wine. It has nuanced flavor that is dependent on many  interlated factors: from weather conditions to soil quality and even growing elevation. </p>
-			  <p className="">But before waxing too poetic about its similarity to wine, however, it should be noted that coffee is also kind of a lot like toast. It gets stale.</p>
-				<p className="">The heady aromas and complex flavor can deteriorate over time — leaving a muddier, more stale experience behind that says nothing about terroir or something else clever.  </p>
+			<div class="section4__text-box">
+        <p className="section4__subtitle">Ultra Basic Tip #4</p>
+			  <h2 className="section4__heading">Always Look for a Roast Date</h2>
+				<p className="section4__text">Coffee is a crop. Not entirely unlike wine. It has nuanced flavor that is dependent on many  interlated factors: from weather conditions to soil quality and even growing elevation. </p>
+			  <p className="section4__text">But before waxing too poetic about its similarity to wine, however, it should be noted that coffee is also kind of a lot like toast. It gets stale.</p>
+				<p className="section4__text">The heady aromas and complex flavor can deteriorate over time — leaving a muddier, more stale experience behind that says nothing about terroir or something else clever.  </p>
 			</div>
 		</section>
 	)
