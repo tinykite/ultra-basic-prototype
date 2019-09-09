@@ -3,7 +3,7 @@
 	grid-template-columns: repeat(12, 1fr);
 	column-gap: 5rem;
 	padding-top: 12rem;
-	padding-bottom: 4rem;
+	padding-bottom: 14rem;
 	align-items: start;
 	overflow: hidden;
 	position: relative;
@@ -46,6 +46,14 @@
 	&__wave {
 		position: absolute;
 		top: 0;
+		right: 0;
+		overflow: visible;
+		z-index: 100;
+	}
+
+	&__wave-bottom {
+		position: absolute;
+		bottom: -1px;
 		right: 0;
 		overflow: visible;
 		z-index: 100;

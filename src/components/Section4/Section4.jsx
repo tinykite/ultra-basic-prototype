@@ -56,6 +56,9 @@ const Section4 = () => {
 			  <p className="section4__text">But before waxing too poetic about its similarity to wine, however, it should be noted that coffee is also kind of a lot like toast. It gets stale.</p>
 				<p className="section4__text">The heady aromas and complex flavor can deteriorate over time — leaving a muddier, more stale experience behind that says nothing about terroir or something else clever.  </p>
 			</div>
+      <svg class="section4__wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 124" width="1440" height="124">
+      <path fillRule="evenodd" d="M-8.34 0l1482 64.541v58.518H-16.808z" />
+      </svg>
 		</section>
 	)
 }

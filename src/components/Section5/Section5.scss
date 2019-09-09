@@ -1,15 +1,54 @@
 .section5 {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
-	padding-top: 12rem;
-	padding-bottom: 7.5rem;
+	column-gap: 5rem;
+	padding-top: 4rem;
+	padding-bottom: 4rem;
 	align-items: start;
-	
+	overflow: hidden;
+	position: relative;
+
+	&__heading {
+		font-size: 48px;
+		line-height: 1.2;
+		color: #ffffff;
+		font-family: jaf-lapture-display, serif;
+    font-weight: 700;
+    font-style: normal;
+		margin-bottom: 24px;
+		margin-top: 1rem;
+	}
+
+	&__subtitle {
+		font-style: italic;
+		color: #ffffff;
+	}
+
 	&__text {
-		grid-column: 6 / 10;
+		font-size: 17px;
+		line-height: 1.6;
+		color: #FFFFFF;
+
+		& + & {
+			margin-top: 24px;
+		}
+	}
+
+	&__text-box {
+		padding-top: 4rem;
+		grid-column: 5 / 10;
 	}
 
 	&__illustration {
 		grid-column: 4;
+		padding-top: 4rem;
+	}
+
+	&__wave {
+		position: absolute;
+		top: 0;
+		right: 0;
+		overflow: visible;
+		z-index: 100;
 	}
 }
