@@ -14,7 +14,7 @@ const Section1 = () => {
 	}
 
 	return (
-		<section className="c-section1 c-section1--drip t-black">
+		<section className="c-section1 c-section1--drip t-deepBlue">
 			<div className="c-section1__container c-section1__container--left">
 				<p className="c-section1__text u-colorInverse">At a punk house in Chicago I lived in during college, coffee was a giant pot of water with an industrial dose of Cafe Bustelo that was boiled for an indeterminate amount of time. </p>
 			  <p className="c-section1__text u-colorInverse">It was super gross.</p>
