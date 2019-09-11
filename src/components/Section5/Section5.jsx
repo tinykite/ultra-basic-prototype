@@ -20,9 +20,9 @@ const Section5 = () => {
     <path fill="#FFF" d="M56.5 27L80 48H33z"/>
   </g>
 </svg>
-			<div class="section5__text-box">
+			<div className="section5__text-box">
         <p className="section5__subtitle">Ultra Basic Tip #5</p>
-				<h2 class="section5__heading">A Few Tools Make Everything Better</h2>
+				<h2 className="section5__heading">A Few Tools Make Everything Better</h2>
 				<p className="section5__text">One thing many individuals do wax poetic about is the importance of good gear. In many ways, fundamental coffee tools — and the somewhat ritualistic process they are used in — are just as important as unspoiled coffee beans.</p>
 				<h3>Burr Grinder</h3>
 				<p className="section5__text">After two cups of a similar sweetness, I couldn't replicate it. But I think it did help me more viscerally understand coffee.</p>
