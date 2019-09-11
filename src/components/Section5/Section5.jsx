@@ -5,7 +5,7 @@ const Section5 = () => {
 	return (
 		<section className="section5 t-black">
 		  <svg className="section5__illustration" xmlns="http://www.w3.org/2000/svg" width="263" height="255" viewBox="0 0 263 255">
-  <g fill="none" fill-rule="evenodd">
+  <g fill="none" fillRule="evenodd">
     <g fill="#FFF">
       <path d="M155 61h103c-5.58 22.945-26.52 40-51.5 40S160.58 83.945 155 61z"/>
       <path d="M156 6h103c-5.58 22.945-26.52 40-51.5 40S161.58 28.945 156 6z"/>

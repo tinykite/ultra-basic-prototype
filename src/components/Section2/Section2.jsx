@@ -22,27 +22,25 @@ const Section2 = () => {
 		<section className="section2">
       <motion.svg className="section2__wave"  ref={ref} animate={inView && "forwards" } initial={"backwards"} transition={{ ease: "linear", duration: 5}}  variants={wave}
       xmlns="http://www.w3.org/2000/svg"
-      data-name="Layer 1"
-      viewBox="0 0 2753 177" width="2753" height="177"
+      viewBox="0 0 2753 177" width="2753" height="177" fill="#19224F"
     >
       <defs>
         <clipPath>
           <path
-            d="M2722-719c-78.52 91.58-156.93 117.57-190 126-65.24 16.63-149.34 14.62-178 14-87-1.88-90.73-11.37-203-18-84.17-5-127.39-7.28-183 1-62.4 9.29-58.9 18.93-147 36-53.65 10.4-103.94 19.84-171 18-35.62-1-78.09-1.77-129-17-98.88-29.58-97.44-73.43-162-81-74.68-8.75-82.59 49.23-202 59-28.64 2.34-80.16 3.26-126 2-30.11-.83-48.73-2.32-54-2.8-42.13-3.79-65.68-10.28-149-15.2-84.17-5-127.39-7.28-183 1-62.4 9.29-58.9 18.93-147 36-53.65 10.4-103.94 19.84-171 18-37.37-1-78-2.14-129-17-56.23-16.38-72.87-34.25-123-43-43.32-7.56-80.31-2.84-104 2l-2-119z"
-            className="cls-1"
+            fill="#19224F" d="M2722-719c-78.52 91.58-156.93 117.57-190 126-65.24 16.63-149.34 14.62-178 14-87-1.88-90.73-11.37-203-18-84.17-5-127.39-7.28-183 1-62.4 9.29-58.9 18.93-147 36-53.65 10.4-103.94 19.84-171 18-35.62-1-78.09-1.77-129-17-98.88-29.58-97.44-73.43-162-81-74.68-8.75-82.59 49.23-202 59-28.64 2.34-80.16 3.26-126 2-30.11-.83-48.73-2.32-54-2.8-42.13-3.79-65.68-10.28-149-15.2-84.17-5-127.39-7.28-183 1-62.4 9.29-58.9 18.93-147 36-53.65 10.4-103.94 19.84-171 18-37.37-1-78-2.14-129-17-56.23-16.38-72.87-34.25-123-43-43.32-7.56-80.31-2.84-104 2l-2-119z"
           />
         </clipPath>
         <clipPath>
-          <path d="M-31-719h2753v646H-31z" className="cls-1" />
+          <path fill="#19224F" d="M-31-719h2753v646H-31z" />
         </clipPath>
       </defs>
       <path
-        fill="#000"
+        fill="#19224F"
         d="M2753 0c-78.52 91.58-156.93 117.57-190 126-65.24 16.63-149.34 14.62-178 14-87-1.88-90.73-11.37-203-18-84.17-5-127.39-7.28-183 1-62.4 9.29-58.9 18.93-147 36-53.65 10.4-103.94 19.84-171 18-35.62-1-78.09-1.77-129-17-98.88-29.58-97.44-73.43-162-81-74.68-8.75-82.59 49.23-202 59-28.64 2.34-80.16 3.26-126 2-30.11-.83-48.73-2.32-54-2.8-42.13-3.79-65.68-10.28-149-15.2-84.17-5-127.39-7.28-183 1-62.4 9.29-58.9 18.93-147 36-53.65 10.4-103.94 19.84-171 18-37.37-1-78-2.14-129-17-56.23-16.38-72.87-34.25-123-43-43.32-7.56-80.31-2.84-104 2L0 0z"
       />
     </motion.svg>
-			<motion.svg className="section2__illustration coffee-particles" xmlns="http://www.w3.org/2000/svg" width="124" height="346" viewBox="0 0 124 346">
-		  <motion.g className="cofeee-particles__bits" fill="#19224F" fill-rule="evenodd">
+			<motion.svg className="section2__illustration coffee-particles" xmlns="http://www.w3.org/2000/svg" width="124" height="346" fill="#19224F" viewBox="0 0 124 346">
+		  <motion.g className="cofeee-particles__bits" fill="#19224F" fillRule="evenodd">
 		    <path className="top" d="M0 0h121c-6.538 26.958-31.144 47-60.5 47S6.538 26.958 0 0z"/>
 		    <circle className="middle" cx="62" cy="140" r="62"/>
 				<path className="bottomLeft" d="M51.596 242v103.924C23.1 345.924 0 322.66 0 293.962 0 265.264 23.1 242 51.596 242z"/>
@@ -52,7 +50,7 @@ const Section2 = () => {
 		  </motion.svg>
 			<motion.div ref={ref} className="section2__text" transition={{duration: 10}}
       variants={variants}>
-				<div class="section2__text-box">
+				<div className="section2__text-box">
 					<p className="section2__subtitle">Ultra Basic Tip #1</p>
 					<h2 className="section2__heading">Tasting Notes Aren't Bullshit</h2>
 				  <p className="section2__text">I once accidentally made a cup of Aeropress coffee at work with an intense, milk-and-honey kind of sweetness. </p>
