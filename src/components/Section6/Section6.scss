@@ -1,20 +1,92 @@
 .section6 {
-	background: #FFF;
 	display: flex;
 	height: 100vh;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 	margin: 0 auto;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='1440' height='694' viewBox='0 0 1440 694'%3E %3Cg fill='none' fill-rule='evenodd' stroke-linecap='square'%3E %3Cg stroke='%23000'%3E %3Cg transform='translate(3.000000, -1.000000)'%3E %3Cpath stroke-width='6' d='M720.5,1 L720.5,692.249964'/%3E %3Cpath stroke-width='6' d='M192.5,4 L192.5,695.249964'/%3E %3Cpath stroke-width='6' d='M1214.5,4 L1214.5,695.249964'/%3E %3Cpath stroke-width='5' d='M0,152.5 L1440,152.5'/%3E %3Cpath stroke-width='5' d='M1,559.5 L1441,559.5'/%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
+	color: #000000;
+
+	&__text-box {
+		padding-top: 2rem;
+		text-align: center;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	&__wave-bottom {
+		position: absolute;
+		bottom: -1px;
+		right: 0;
+		overflow: visible;
+		z-index: 100;
+	}
+
+	// &::before {
+	// 	height: 38vh;
+	// 	width: 100%;
+	// 	content: "";
+	// 	position: absolute;
+	// 	z-index: -1;
+	// 	display: block;
+	// 	top: 0;
+	// 	left: 0;
+	// 	border-bottom: 5px solid #000000;
+	// }
+
+	// &::after {
+	// 	height: 70vh;
+	// 	width: 100%;
+	// 	content: "";
+	// 	position: absolute;
+	// 	z-index: -1;
+	// 	display: block;
+	// 	top: 0;
+	// 	left: 0;
+	// 	border-bottom: 5px solid #000000;
+	// }
 
 	&__sectionHeading {
 		font-family: "Macula Line";
 		font-style: normal;
 		font-weight: normal;		
-		color: #fff;
+		color: #ffffff;
 		background: #000;
-		padding: 3rem;
-		font-size: 75px;
+		padding: 1rem 1.5rem;
+		font-size: 90px;
 		display: inline;
+		position: relative;
+
+		// &::before {
+		// 	height: 20vh;
+		// 	width: 100%;
+		// 	content: "";
+		// 	position: absolute;
+		// 	z-index: -1;
+		// 	display: block;
+		// 	top: -10rem;
+		// 	left: 0;
+		// 	border-bottom: 5px solid #000000;
+		// 	}
+
+		// &::after {
+	  // height: 8.75rem;
+		// width: 100%;
+		// content: "";
+		// position: absolute;
+		// z-index: -1;
+		// display: block;
+		// top: 0;
+		// left: 0;
+		// border-bottom: 5px solid #000000;
+		// }
+	}
+
+	&__wave {
+		position: absolute;
+		top: 0;
+		right: 0;
+		overflow: visible;
+		z-index: 100;
 	}
 }

@@ -1,0 +1,71 @@
+.FrenchPress {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	column-gap: 4rem;
+	align-items: center;
+	overflow: hidden;
+	position: relative;
+	padding: 10rem 0;
+
+	&__heading {
+		font-family: "Nostrav1.0-SettTrial";
+		font-size: 60px;
+		color: #FFFFFF;
+		letter-spacing: 0.41px;
+    text-transform: uppercase;
+		margin-bottom: 24px;
+		margin-top: 1rem;
+		align-items: top;
+	}
+
+	&__subtitle {
+		font-style: italic;
+		color: #ffffff;
+	}
+
+	&__text {
+		font-size: 17px;
+		line-height: 1.6;
+		color: #FFFFFF;
+
+		& + & {
+			margin-top: 24px;
+		}
+	}
+
+	&__text-box {
+		grid-column: 3 / 8;
+		grid-row: 1;
+	}
+
+	&__illustration {
+		grid-column-start: 9;
+		grid-row: 1;
+		overflow: visible;
+	}
+
+	&__wave {
+		position: absolute;
+		top: 0;
+		right: 0;
+		overflow: visible;
+		z-index: 100;
+	}
+
+	&__waveBottom {
+		overflow: hidden;
+		z-index: 100;
+		transform: translateY(-1px);
+	}
+
+	&__waveBox {
+		background: #19224F;
+		height: 186px;
+		position: absolute;
+		bottom: 0;
+	}
+}
+
+.u-opacity50 {
+	opacity: .5;
+}

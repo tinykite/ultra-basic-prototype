@@ -1,0 +1,72 @@
+.KalitaWave {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	column-gap: 4rem;
+	padding-top: 8rem;
+	padding-bottom: calc(8rem + 290px);
+	align-items: center;
+	overflow: hidden;
+	position: relative;
+
+	&__heading {
+		line-height: 1.2;
+		font-family: "Carmin0.1-Extrabold";
+    font-size: 60px;
+    color: #19224F;
+    letter-spacing: 0.41px;
+    text-transform: uppercase;
+		margin-bottom: 24px;
+		margin-top: 1rem;
+		align-items: top;
+	}
+
+	&__subtitle {
+		font-style: italic;
+		color: #19224F;
+	}
+
+	&__text {
+		font-size: 17px;
+		line-height: 1.6;
+		color: #19224F;
+
+		& + & {
+			margin-top: 24px;
+		}
+	}
+
+	&__text-box {
+		grid-column: 3 / 8;
+		grid-row: 1;
+	}
+
+	&__illustration {
+		grid-column-start: 9;
+		grid-row: 1;
+	}
+
+	&__wave {
+		position: absolute;
+		top: 0;
+		right: 0;
+		overflow: visible;
+		z-index: 100;
+	}
+
+	&__waveBottom {
+		overflow: hidden;
+		z-index: 100;
+		transform: translateY(-1px);
+	}
+
+	&__waveBox {
+		background: #000;
+		height: 186px;
+		position: absolute;
+		bottom: 0;
+	}
+}
+
+.u-rounded {
+	border-radius: 100px;
+}

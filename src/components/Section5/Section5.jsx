@@ -3,7 +3,7 @@ import './Section5.scss';
 
 const Section5 = () => {
 	return (
-		<section className="section5 t-black">
+		<section className="section5">
 		  <svg className="section5__illustration" xmlns="http://www.w3.org/2000/svg" width="263" height="255" viewBox="0 0 263 255">
   <g fill="none" fillRule="evenodd">
     <g fill="#FFF">
@@ -24,9 +24,7 @@ const Section5 = () => {
         <p className="section5__subtitle">Ultra Basic Tip #5</p>
 				<h2 className="section5__heading">A Few Tools Make Everything Better</h2>
 				<p className="section5__text">One thing many individuals do wax poetic about is the importance of good gear. In many ways, fundamental coffee tools — and the somewhat ritualistic process they are used in — are just as important as unspoiled coffee beans.</p>
-				<h3>Burr Grinder</h3>
 				<p className="section5__text">After two cups of a similar sweetness, I couldn't replicate it. But I think it did help me more viscerally understand coffee.</p>
-				<h3>Gram Scale</h3>
 				<p className="section5__text">After two cups of a similar sweetness, I couldn't replicate it. But I think it did help me more viscerally understand coffee.</p>
 			</div>
 		</section>

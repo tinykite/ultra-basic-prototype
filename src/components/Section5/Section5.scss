@@ -7,13 +7,14 @@
 	align-items: start;
 	overflow: hidden;
 	position: relative;
+	background: #1043BE;
 
 	&__heading {
 		font-size: 48px;
 		line-height: 1.2;
-		color: #ffffff;
+		color: #000;
 		font-family: jaf-lapture-display, serif;
-    font-weight: 700;
+    font-weight: normal;
     font-style: normal;
 		margin-bottom: 24px;
 		margin-top: 1rem;
@@ -21,13 +22,13 @@
 
 	&__subtitle {
 		font-style: italic;
-		color: #ffffff;
+		color: #0F0097;
 	}
 
 	&__text {
 		font-size: 17px;
 		line-height: 1.6;
-		color: #FFFFFF;
+		color: #0F0097;
 
 		& + & {
 			margin-top: 24px;
