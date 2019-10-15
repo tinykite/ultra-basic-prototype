@@ -1,0 +1,141 @@
+@import 'functions';
+
+body, section, article, div, h1, h2, h3, h4, h5, p {
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	font-family: pt mono;
+	color: #19224F;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+img {
+	max-width: 100%;
+}
+
+.t-white {
+	background: #ffffff;
+}
+
+.t-pink {
+	background: #FFCEB9;
+}
+
+.t-lightPink {
+	background: #FCF1F2;
+}
+
+.t-blue {
+	background: #3C5895;
+}
+
+.t-deepBlue {
+	background: #19224F;
+}
+
+.t-black {
+	background: #000;
+}
+
+.t-sand {
+	background: #F2DDD5;
+}
+
+
+.t-darkSeafoam {
+	background: #113C46;
+}
+
+.t-beige {
+	background: rgba(255, 222, 196, 1);
+}
+
+.u-visuallyHidden {
+	position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.u-colorInverse {
+  color: #ffffff;
+}
+
+.c-text {
+	line-height: 1.6;
+	font-size: 17px;
+	max-width: 500px;
+}
+
+.c-text--introduction {
+	position: relative;
+	grid-column: 2 / 10;
+	padding: 175px 0 50px;
+	
+	@media (min-width: 720px) {
+		grid-column: 3 / 8;
+	}
+
+	@media (min-width: 1000px) {
+		padding: calc(20vh + 50px) 0 10vh;
+	} 
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 100px;
+		left: 0;
+		width: 98.83px;
+    height: 43.15px;
+		background-image: svg-url('<svg width="98.83" height="43.15" viewBox="0 0 98.83 43.15"><path fill="#fff" d="M86.41 21.43c1.85-2.49 1.59-2.22 12.15-18.57 1.39-2.19-2.83-4-4.77-2-14.12 14.57-13 13.45-13.24 13.67L67.31.87c-1-1.09-3.55-.59-4.5 0C58.76 3.37 50 14.09 49.57 14.54c-.2-.22.88.9-13.24-13.67a4 4 0 0 0-3.85-.49C28 2.66 18.38 14.73 18.29 14.83c-.2-.22.88.89-13.24-13.67-1.93-2-6.17-.21-4.77 2 10.51 16.31 10.29 16.06 12.15 18.56-1.86 2.5-1.64 2.28-12.15 18.57-1.39 2.18 2.83 4 4.77 2 14.08-14.53 13-13.44 13.24-13.67.21.23-.88-.9 13.24 13.67a3.48 3.48 0 0 0 3.85.49c.72-.37 14.1-14.35 14.19-14.45.21.23-.87-.88 13 13.44a3.39 3.39 0 0 0 4.7.2c.1-.1 13-13.35 13.24-13.67.2.23-.88-.89 13.24 13.67 1.92 2 6.17.2 4.77-2C88 23.66 88.26 23.93 86.41 21.43zm-52.57 15C25.79 24 25.84 24 24.15 21.72c1.71-2.3 1.64-2.25 9.87-15 8 12.47 8 12.45 9.69 14.74-1.71 2.28-1.66 2.25-9.87 15zm31.22-.36c-8-12.41-7.94-12.39-9.63-14.67 1.69-2.27 1.64-2.25 9.63-14.66C73 19.16 73 19.15 74.69 21.43 73 23.72 73 23.71 65.06 36.1z"/></svg>');
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: -10px;
+		right: -50px;
+		width: 98.83px;
+		height: 43.15px;
+		z-index: 100;
+		background-image: svg-url('<svg width="98.83" height="43.15" viewBox="0 0 98.83 43.15"><path fill="#fff" d="M86.41 21.43c1.85-2.49 1.59-2.22 12.15-18.57 1.39-2.19-2.83-4-4.77-2-14.12 14.57-13 13.45-13.24 13.67L67.31.87c-1-1.09-3.55-.59-4.5 0C58.76 3.37 50 14.09 49.57 14.54c-.2-.22.88.9-13.24-13.67a4 4 0 0 0-3.85-.49C28 2.66 18.38 14.73 18.29 14.83c-.2-.22.88.89-13.24-13.67-1.93-2-6.17-.21-4.77 2 10.51 16.31 10.29 16.06 12.15 18.56-1.86 2.5-1.64 2.28-12.15 18.57-1.39 2.18 2.83 4 4.77 2 14.08-14.53 13-13.44 13.24-13.67.21.23-.88-.9 13.24 13.67a3.48 3.48 0 0 0 3.85.49c.72-.37 14.1-14.35 14.19-14.45.21.23-.87-.88 13 13.44a3.39 3.39 0 0 0 4.7.2c.1-.1 13-13.35 13.24-13.67.2.23-.88-.89 13.24 13.67 1.92 2 6.17.2 4.77-2C88 23.66 88.26 23.93 86.41 21.43zm-52.57 15C25.79 24 25.84 24 24.15 21.72c1.71-2.3 1.64-2.25 9.87-15 8 12.47 8 12.45 9.69 14.74-1.71 2.28-1.66 2.25-9.87 15zm31.22-.36c-8-12.41-7.94-12.39-9.63-14.67 1.69-2.27 1.64-2.25 9.63-14.66C73 19.16 73 19.15 74.69 21.43 73 23.72 73 23.71 65.06 36.1z"/></svg>');
+	}
+}
+
+.c-text__item {
+	& + & {
+		margin-top: 24px;
+	}
+}
+
+.c-story {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	overflow: hidden;
+	position: relative;
+}
+
+.c-story--introduction {
+	padding-bottom: 115px;
+
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 115px;
+		width: 100%;
+		background-image: svg-url('<svg preserveAspectRatio="none" viewBox="0 0 1440 115"><g fill="none" fill-rule="evenodd"><path fill="#FFF" d="M0 0h1440v115H0z"/><path fill="#000" d="M0 114.76c187.601 0 157.664-57.879 345.265-57.879 187.604 0 187.604 57.88 375.212 57.88 187.615 0 187.615-57.88 375.23-57.88 187.614 0 156.678 57.88 344.293 57.88V0H0v114.76z"/></g></svg>');
+		background-repeat: none;
+		z-index: 0;
+	}
+}
