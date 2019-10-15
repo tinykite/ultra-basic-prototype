@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.scss';
+import Hero from './components/Hero/Hero';
 import Introduction from './components/Introduction/Introduction';
 import Section1 from './components/Section1/Section1';
 import Section2 from './components/Section2/Section2';
@@ -13,6 +14,7 @@ import FrenchPress from './components/FrenchPress/FrenchPress';
 function App() {
 	return (
 		<div className="App">
+			<Hero />
 			<Introduction />
 			<Section1 />
 			<Section2 />
