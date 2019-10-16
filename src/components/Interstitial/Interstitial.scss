@@ -24,14 +24,15 @@
 	}
 
 	&__text {
-		font-size: 20px;
-		line-height: 1.6;
-		max-width: 650px;
+		font-size: 18px;
+		max-width: 600px;
 		margin-top: 1rem;
+		font-family: "Operator Mono SSm A", "Operator Mono SSm B";
+    font-weight: 400;
 
 		@media (min-width: 720px) {
-			font-size: 24px;
-			margin-top: 2rem;
+			margin-top: 1.5rem;
+			font-size: 20px;
 		}
   }
 }
