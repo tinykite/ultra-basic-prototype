@@ -10,6 +10,7 @@ function App() {
 			<Hero />
 			<Introduction />
 			<Interstitial Title={"Ultra Basic Advice"} Description={"Because everyone needs to start somewhere. These are the tips I wish I always had."}/>
+			<Tip />
 		</>
 	)
 }
