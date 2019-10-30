@@ -10,9 +10,7 @@ function App() {
 		<>
 			<Hero />
 			<Introduction />
-			<Interstitial Title={"Ultra Basic Advice"} Description={"Because everyone needs to start somewhere. These are the tips I wish I always had."}/>
-			<Tip />
-			<Interstitial Title={"Ultra Basic Tools"} Description={"Basic but beautiful methods of making coffee by hand."}/>
+			<Interstitial Title={"Ultra Basic Advice"} Description={"All the random tips you need to start making better coffee. (But seriously, emphasis on basic.)"}/>
 		</>
 	)
 }

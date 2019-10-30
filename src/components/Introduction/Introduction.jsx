@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from "framer";
-import './Introduction.scss';
+
+// From the Use Hooks Website
+// https://usehooks.com/useOnScreen
+
+// Also available as a Node Module
+// https://github.com/thebuilder/react-intersection-observer
 
 function useOnScreen(ref) {
   // State and setter for storing whether element is visible
@@ -11,7 +16,7 @@ function useOnScreen(ref) {
       ([entry]) => {
         // Update our state when observer callback fires
 				setIntersecting(entry.isIntersecting);
-				console.log("Hello world ratio");
+				console.log("Look, I'm being observed!");
 				
       },
       {
