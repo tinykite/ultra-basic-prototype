@@ -1,18 +1,17 @@
 import React from 'react';
 import './index.scss';
-import Hero from './components/Hero/Hero';
-import Introduction from './components/Introduction/Introduction';
-import Interstitial from './components/Interstitial/Interstitial';
-import Tip from './components/Tip/Tip';
+import Hero from './Hero';
+import Introduction from './Introduction';
+// import Interstitial from './oldComponents/Interstitial/Interstitial';
+// import Tip from './oldComponents/Tip/Tip';
 
 function App() {
-	return (
-		<>
-			<Hero />
-			<Introduction />
-			<Interstitial Title={"Ultra Basic Advice"} Description={"All the random tips you need to start making better coffee. (But seriously, emphasis on basic.)"}/>
-		</>
-	)
+  return (
+    <>
+      <Hero />
+      <Introduction />
+    </>
+  );
 }
 
 export default App;

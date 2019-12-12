@@ -1,6 +1,27 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer';
-import useOnScreen from '../../hooks/useOnScreen';
+import useOnScreen from './hooks/useOnScreen';
+import styled from 'styled-components';
+
+const ScrollContainer = styled(motion.div)`
+  background: black;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+`;
+
+const Drips = styled(motion.svg)`
+  position: absolute;
+  top: 10px;
+  right: 7%;
+
+  @media (min-width: 720px) {
+    right: 20%;
+  }
+`;
 
 const Introduction = () => {
   const ref = useRef();
@@ -11,8 +32,8 @@ const Introduction = () => {
   };
 
   return (
-    <div className="t-black c-story c-story--introduction" ref={ref}>
-      <article className="c-text c-text--introduction">
+    <ScrollContainer ref={ref}>
+      <article className="c-text">
         <p className="c-text__item u-colorInverse">
           At a punk house in Chicago I lived in during college, coffee
           was a giant pot of water with an industrial dose of Cafe
@@ -30,8 +51,7 @@ const Introduction = () => {
           This is a short guide to understanding more of the nuance.
         </p>
       </article>
-      <motion.svg
-        className="c-story__drips"
+      <Drips
         animate={onScreen && 'play'}
         initial={'pause'}
         transition={{ ease: 'easeOut', duration: 8 }}
@@ -51,8 +71,8 @@ const Introduction = () => {
             d="M37 0h19v124.5a9.5 9.5 0 0 1-19 0V0z"
           />
         </g>
-      </motion.svg>
-    </div>
+      </Drips>
+    </ScrollContainer>
   );
 };
 
