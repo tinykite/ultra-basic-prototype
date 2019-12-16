@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer';
-import useOnScreen from './hooks/useOnScreen';
+import { useOnScreen } from './hooks/useOnScreen';
 import styled from 'styled-components';
 
 const ScrollContainer = styled(motion.div)`
@@ -25,7 +25,11 @@ const Drips = styled(motion.svg)`
 
 const Introduction = () => {
   const ref = useRef();
-  const onScreen = useOnScreen(ref);
+  const thresholdOptions = 0;
+  const onScreen = useOnScreen(ref, thresholdOptions);
+
+  const { isIntersecting } = onScreen;
+
   const variants = {
     play: { translateY: -10 },
     pause: { translateY: -273 },
@@ -52,7 +56,7 @@ const Introduction = () => {
         </p>
       </article>
       <Drips
-        animate={onScreen && 'play'}
+        animate={isIntersecting && 'play'}
         initial={'pause'}
         transition={{ ease: 'easeOut', duration: 8 }}
         variants={variants}

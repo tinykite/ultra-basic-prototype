@@ -2,14 +2,22 @@ import React from 'react';
 import './index.scss';
 import Hero from './Hero';
 import Introduction from './Introduction';
-// import Interstitial from './oldComponents/Interstitial/Interstitial';
-// import Tip from './oldComponents/Tip/Tip';
+import Tools from './Tools';
+import Aeropress from './Aeropress';
+import KalitaWave from './KalitaWave';
+import FrenchPress from './FrenchPress';
+import Technique from './Technique';
 
 function App() {
   return (
     <>
       <Hero />
       <Introduction />
+      <Tools />
+      <Aeropress />
+      <KalitaWave />
+      <FrenchPress />
+      <Technique />
     </>
   );
 }

@@ -20,7 +20,7 @@ const HeroContainer = styled.div`
 `;
 
 const HeroTitle = styled.h1`
-  font-family: 'Knockout 70 A', 'Knockout 70 B';
+  font-family: 'Knockout 69 A', 'Knockout 69 B';
   font-style: normal;
   font-size: 60px;
   font-weight: 400;
@@ -134,8 +134,8 @@ const Hero = () => {
       </HeroContainer>
       <Intro>
         <IntroDescription>
-          An illustrated guide to the fundamentals of manually-brewed
-          coffee.
+          An illustrated guide to the fundamentals of coffee
+          extraction.
         </IntroDescription>
       </Intro>
     </>

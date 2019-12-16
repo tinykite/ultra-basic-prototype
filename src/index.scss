@@ -15,9 +15,10 @@ p {
 }
 
 p {
-  font-family: 'Operator Mono SSm A', 'Operator Mono SSm B';
-  font-style: normal;
+  font-family: input-mono, monospace;
   font-weight: 300;
+  font-style: normal;
+  font-size: 17px;
   color: #19224f;
   line-height: 1.5;
   margin: 0;
@@ -84,7 +85,7 @@ img {
 .c-text {
   line-height: 1.6;
   font-size: 17px;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .c-text--introduction {
@@ -173,7 +174,7 @@ img {
   }
 }
 
-cupLiquid {
+.cupLiquid {
   transform: translateY(100%);
   animation: titlePour 8s linear forwards;
 }

@@ -1,22 +1,19 @@
-import { useState, useEffect } from 'react';
-// From the Use Hooks Website
-// https://usehooks.com/useOnScreen
+import { useEffect, useState } from 'react';
 
-// Also available as a Node Module
-// https://github.com/thebuilder/react-intersection-observer
-
-function useOnScreen(ref) {
+export function useOnScreen(ref, thresholdOptions) {
   // State and setter for storing whether element is visible
   const [isIntersecting, setIntersecting] = useState(false);
+  const [getThreshold, setThreshold] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         // Update our state when observer callback fires
         setIntersecting(entry.isIntersecting);
+        setThreshold(entry.intersectionRatio);
       },
       {
-        threshold: [0],
+        threshold: thresholdOptions,
       },
     );
     if (ref.current) {
@@ -27,7 +24,5 @@ function useOnScreen(ref) {
     };
   }, []); // Empty array ensures that effect is only run on mount and unmount
 
-  return isIntersecting;
+  return { isIntersecting, getThreshold };
 }
-
-export default useOnScreen;
