@@ -2,7 +2,7 @@ import React from 'react';
 import './index.scss';
 import Hero from './Hero';
 import Introduction from './Introduction';
-import Tools from './Tools';
+import Interstitial from './Interstitial';
 import Aeropress from './Aeropress';
 import KalitaWave from './KalitaWave';
 import FrenchPress from './FrenchPress';
@@ -13,8 +13,12 @@ function App() {
     <>
       <Hero />
       <Introduction />
-      <Tools />
-      <Aeropress />
+      <Interstitial title="Ultra Basic Tools" />
+      <Aeropress
+        title="Aeropress"
+        fontStack="Barbour"
+        background="#19224f"
+      />
       <KalitaWave />
       <FrenchPress />
       <Technique />

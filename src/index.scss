@@ -1,4 +1,5 @@
 @import 'functions';
+@import 'typography';
 
 body,
 section,
@@ -12,6 +13,11 @@ h5,
 p {
   margin: 0;
   padding: 0;
+}
+
+img,
+svg {
+  max-width: 100%;
 }
 
 p {
@@ -182,5 +188,32 @@ img {
 @keyframes titlePour {
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes verticalStripes {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes blinds {
+  to {
+    background-image: linear-gradient(90deg, #f90 100%, #444 0);
+  }
+}
+
+.splitting .char {
+  animation: slide-in 1s cubic-bezier(0.5, 0, 0.5, 1) both;
+  animation-delay: calc(60ms * var(--char-index));
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-1em) rotate(-0.5turn) scale(0.5);
+    opacity: 0;
   }
 }

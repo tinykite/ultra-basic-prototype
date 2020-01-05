@@ -4,7 +4,7 @@ import { useOnScreen } from './hooks/useOnScreen';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 const ScrollContainer = styled.div`
-  height: 100vh;
+  height: 80vh;
   background: #000;
   display: flex;
   align-items: center;
@@ -15,6 +15,10 @@ const TextContainer = styled(motion.article)`
   max-width: 530px;
 `;
 
+const TitleContainer = styled(motion.div)`
+  overflow: hidden;
+`;
+
 const Title = styled(motion.h2)`
   font-family: 'Nostrav1.0-SettTrial';
   font-size: 60px;
@@ -22,9 +26,10 @@ const Title = styled(motion.h2)`
   letter-spacing: 0.44px;
   text-transform: uppercase;
   font-weight: normal;
+  transform: translateY(100%);
 `;
 
-const Intro = styled.p`
+const Intro = styled(motion.p)`
   color: #ffffff;
   font-family: input-mono, monospace;
   font-weight: 200;
@@ -34,7 +39,7 @@ const Intro = styled.p`
   line-height: 1.6;
 `;
 
-const Story = styled.p`
+const Story = styled(motion.p)`
   color: #ffffff;
   font-weight: 200;
   margin-top: 30px;
@@ -78,23 +83,29 @@ const FrenchPress = () => {
 
   const position = useMotionValue(0);
   position.set(getThreshold);
+
   const xRange = [0, 1];
-  const yRange = ['-200px', '0px'];
-  const driftRange = ['-50px', '0px'];
-  const opacity = position;
-  const translateY = useTransform(position, xRange, yRange);
-  const driftVertical = useTransform(position, xRange, driftRange);
+  const yRange = ['70px', '-80px'];
+  const driftRange = ['100%', '0%'];
+  const opacity = useTransform(position, 1, 0);
+  const plungerUp = useTransform(position, xRange, yRange, {
+    clamp: false,
+    type: 'inertia',
+    velocity: 50,
+    power: 50,
+    timeConstant: 200,
+  });
+  const driftUp = useTransform(position, xRange, driftRange);
 
   return (
     <>
       <ScrollContainer ref={ref}>
-        <TextContainer style={{ opacity }}>
-          <Title
-            style={{ translateY: driftVertical }}
-            transition={{ type: 'inertia', velocity: 100 }}
-          >
-            French Press
-          </Title>
+        <TextContainer>
+          <TitleContainer>
+            <Title style={{ translateY: driftUp, opacity }}>
+              French Press
+            </Title>
+          </TitleContainer>
           <Intro>
             Invented in 1929. Not a lot has changed. But who says
             that's a bad thing?
@@ -118,7 +129,16 @@ const FrenchPress = () => {
           height="415"
           viewBox="0 0 241 415"
         >
-          <motion.g style={{ translateY }}>
+          <motion.g
+            style={{ translateY: plungerUp, opacity }}
+            transition={{
+              type: 'inertia',
+              velocity: 50,
+              power: 50,
+              clamp: 'false',
+              timeConstant: 200,
+            }}
+          >
             <path
               fill="#7F7F7F"
               d="M190.64 308.08v25h-150v-25h59.79v-11.83h10.37v-249c-11.625-2.874-19.304-13.938-17.93-25.834C94.241 9.52 104.24.497 116.214.347c11.974-.15 22.194 8.621 23.864 20.479 1.67 11.858-5.73 23.11-17.279 26.274v249.15h9.63v11.83h58.21z"

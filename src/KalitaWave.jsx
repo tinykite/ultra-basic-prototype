@@ -2,26 +2,58 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { useOnScreen } from './hooks/useOnScreen';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
+import 'typography.css';
 
 const ScrollContainer = styled.div`
-  height: 85vh;
-  background: #fcf1f2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: ${props => props.background};
+  margin: 0 auto;
 `;
 
-const TextContainer = styled(motion.article)`
-  max-width: 530px;
+const Main = styled.article`
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+
+  @media (min-width: 500px) {
+    width: 80%;
+  }
+
+  @media (min-width: 720px) {
+    grid-template-columns: 1fr 0.6fr;
+    align-content: center; /* Important side effect utilized here: this property also prevent rows from stretching to fill available space! */
+    height: 80vh;
+    grid-auto-flow: dense;
+    grid-column-gap: 30px;
+  }
+
+  @media (min-width: 1000px) {
+    grid-template-columns: 550px 1fr;
+    max-width: 1000px;
+    grid-column-gap: 45px;
+  }
 `;
 
 const Title = styled(motion.h2)`
-  font-family: 'Carmin0.1-Extrabold';
+  font-family: 'Carmin 0.2';
   font-size: 65px;
   color: #19224f;
   letter-spacing: 0.44px;
   text-transform: uppercase;
   font-weight: normal;
+  text-align: center;
+  grid-column: 1 / 1;
+
+  @media (min-width: 320px) {
+    font-size: calc(45px + 16 * ((100vw - 320px) / 320));
+  }
+
+  @media (min-width: 720px) {
+    text-align: left;
+    font-size: 65px;
+  }
 `;
 
 const Intro = styled.p`
@@ -29,21 +61,122 @@ const Intro = styled.p`
   font-family: input-mono, monospace;
   font-weight: 300;
   font-style: italic;
-  margin-top: 30px;
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 14px;
+  grid-column: 1 / 1;
+  text-align: center;
+  margin-top: 20px;
+
+  @media (min-width: 720px) {
+    text-align: left;
+    font-size: 16px;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 19px;
+  }
 `;
 
 const Story = styled.p`
   color: #19224f;
   font-weight: 300;
-  margin-top: 30px;
-  line-height: 1.6;
-  font-size: 16px;
+  line-height: 1.5;
+  font-size: 14px;
+  grid-column: 1 / 1;
+  text-align: center;
+  margin-top: 12rem;
+
+  @media (min-width: 350px) {
+    margin-top: 16rem;
+  }
+
+  @media (max-width: 719px) {
+    order: 1;
+    grid-row: 3;
+    align-self: end;
+  }
+
+  @media (min-width: 720px) {
+    text-align: left;
+    font-size: 16px;
+    margin-top: 20px;
+  }
 `;
 
-const Illustration = styled(motion.svg)`
-  margin-left: 100px;
+const Illustration = styled(motion.div)`
+  width: 80%;
+  position: relative;
+  margin: 0 auto;
+  /* align-self: start; */
+  grid-column: 1 / -1;
+
+  @media (max-width: 719px) {
+    grid-row: 3;
+  }
+
+  @media (min-width: 720px) {
+    height: 0; /* We don't want this container to contribute to grid row height */
+    grid-column: 2 / -1;
+    width: 100%;
+    max-width: 283px;
+    /* align-self: start; */
+  }
+
+  @media (min-width: 1010px) {
+    transform: translateY(-2vw);
+  }
+
+  @media (min-width: 1100px) {
+    transform: translateY(-8vh);
+  }
+`;
+
+const IllustrationLayout = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+
+  @media (min-width: 720px) {
+    margin: 0;
+  }
+`;
+
+const Kalita = styled(motion.svg)`
+  width: 100%;
+  max-width: 283px;
+  height: auto;
+`;
+
+const Mug = styled(motion.div)`
+  border: 8px solid #1b234f;
+  width: 115px;
+  height: 99.2px;
+  margin-left: -12px;
+  margin-top: 5px;
+  border-radius: 0px 0px 25% 25%;
+  overflow: hidden;
+  position: relative;
+  display: none;
+
+  @media (min-width: 720px) {
+    display: block;
+    margin-top: 30px;
+    border: 10px solid #1b234f;
+    margin-left: -16px;
+  }
+
+  @media (min-width: 1200px) {
+    height: 124px;
+    width: 144px;
+    margin-left: -30px;
+  }
+`;
+
+const Coffee = styled(motion.div)`
+  height: 124px;
+  width: 144px;
+  background: #1b234f;
 `;
 
 const TopWave = styled(motion.svg)`
@@ -70,11 +203,18 @@ const KalitaWave = () => {
   const position = useMotionValue(0);
   position.set(getThreshold);
   const xRange = [0, 1];
-  const yRange = ['75px', '0px'];
-  const driftRange = ['-50px', '0px'];
-  const opacity = position;
-  const translateY = useTransform(position, xRange, yRange);
-  const driftVertical = useTransform(position, xRange, driftRange);
+  const skewRange = ['0.7rad', '-0.6rad'];
+  const skew = useTransform(position, xRange, skewRange);
+
+  const alternateDrip = {
+    play: { opacity: 1 },
+    pause: { opacity: 0 },
+  };
+
+  const brew = {
+    play: { translateY: '25%' },
+    pause: { translateY: '100%' },
+  };
 
   return (
     <>
@@ -88,18 +228,78 @@ const KalitaWave = () => {
           d="M1440 0v57.015h-316.267c-187.95 0-187.95 58.016-375.903 58.016-187.96 0-187.96-58.015-375.92-58.015C199.959 57.016 151 249.493 0 282.279V0h1440z"
         ></path>
       </TopWave>
-      <ScrollContainer ref={ref}>
-        <TextContainer style={{ opacity }}>
-          <Title
-            style={{ translateY: driftVertical }}
-            transition={{ type: 'inertia', velocity: 100 }}
-          >
-            Kalita Wave
-          </Title>
+      <ScrollContainer ref={ref} background={'#fcf1f2'}>
+        <Main>
+          <Title style={{ skew }}>Kalita Wave</Title>
           <Intro>
             A pourover device with a very flat bottom. Don't be weird.
             It's a good thing.
           </Intro>
+          <Illustration>
+            <IllustrationLayout>
+              <Kalita
+                xmlns="http://www.w3.org/2000/svg"
+                width="350"
+                height="auto"
+                fill="none"
+                viewBox="0 0 283 224"
+              >
+                <motion.path
+                  animate={'play'}
+                  initial={'pause'}
+                  transition={{
+                    duration: 0.5,
+                    yoyo: Infinity,
+                    repeatDelay: 4,
+                    ease: 'easeInOut',
+                  }}
+                  variants={alternateDrip}
+                  s
+                  fill="#C6BAC9"
+                  fillRule="evenodd"
+                  d="M125 149c2.76 0 5 3.361 5 7.503v60.734c0 3.742-2.24 6.763-5 6.763s-5-3.001-5-6.763v-60.734c0-4.142 2.24-7.503 5-7.503zM139 136a5 5 0 015 4.999v40.486a4.78 4.78 0 01-5 4.509 4.77 4.77 0 01-5-4.509v-40.486a5 5 0 015-4.999z"
+                  clipRule="evenodd"
+                ></motion.path>
+                <motion.path
+                  animate={'play'}
+                  initial={'pause'}
+                  transition={{
+                    duration: 0.5,
+                    yoyo: Infinity,
+                    repeatDelay: 4,
+                    delay: 5,
+                    ease: 'easeInOut',
+                  }}
+                  variants={alternateDrip}
+                  fill="#C4BBC8"
+                  fillRule="evenodd"
+                  d="M111 105c2.76 0 5 3.361 5 7.503v60.734c0 3.742-2.24 6.763-5 6.763-1.84 0-1.84 0 0 0-2.76 0-5-3.001-5-6.763v-60.734c0-4.142 2.24-7.503 5-7.503zM153 98c2.76 0 5 3.361 5 7.503v60.734c0 3.742-2.24 6.763-5 6.763-1.84 0-1.84 0 0 0-2.76 0-5-3.001-5-6.763v-60.734c0-4.142 2.24-7.503 5-7.503z"
+                  clipRule="evenodd"
+                ></motion.path>
+                <path
+                  fill="#1B234F"
+                  d="M207 149H57v10h150v-10z"
+                ></path>
+                <path
+                  fill="#1B234F"
+                  fillRule="evenodd"
+                  d="M239.828 20.25L251.328 0H0l88.052 150h78.041l13.628-24h43.332L283 20.23l-43.172.02zm-22.98 95h-30.762l47.787-84.3h30.733l-47.758 84.3z"
+                  clipRule="evenodd"
+                ></path>
+              </Kalita>
+              <Mug>
+                <Coffee
+                  animate={isIntersecting && 'play'}
+                  initial={'pause'}
+                  transition={{
+                    duration: 12,
+                    delay: 1,
+                  }}
+                  variants={brew}
+                />
+              </Mug>
+            </IllustrationLayout>
+          </Illustration>
           <Story>
             The Kalita Wave is an able workhorse for individuals who
             want to drink at least a few cups of coffee. Its iconic
@@ -107,54 +307,7 @@ const KalitaWave = () => {
             at heart. The flat, simple silhouette makes it easier to
             more evenly extract your coffee.
           </Story>
-        </TextContainer>
-        <Illustration
-          xmlns="http://www.w3.org/2000/svg"
-          width="301"
-          height="351"
-          viewBox="0 0 301 351"
-        >
-          <g
-            fill="none"
-            fillRule="evenodd"
-            stroke="none"
-            strokeWidth="1"
-          >
-            <path
-              fill="#FDF1F2"
-              fillRule="nonzero"
-              d="M0.05 0.74H300.05V350.74H0.05z"
-              transform="translate(-849 -5703) translate(849 5703)"
-            />
-            <g transform="translate(-849 -5703) translate(849 5703) translate(8 2)">
-              <path
-                stroke="#1B234F"
-                strokeWidth="11"
-                d="M76 232.42v78.82a31 31 0 0031.05 31H173a31 31 0 0031.05-31v-78.82H76z"
-              />
-              <path
-                fill="#1B234F"
-                stroke="#1B234F"
-                strokeWidth="11"
-                d="M77.09 314.58c1.25 16.19 14.762 28.682 31 28.66h65c16.236.017 29.745-12.473 31-28.66h-127z"
-              />
-              <path
-                fill="#8D86A0"
-                d="M139.35 128.79c2.76 0 5 3.36 5 7.5V197c0 3.74-2.24 6.76-5 6.76s-5-3-5-6.76v-60.71c0-4.14 2.24-7.5 5-7.5zM153.71 129.19a5 5 0 015 5v40.49a4.78 4.78 0 01-5 4.51 4.77 4.77 0 01-5-4.51v-40.49a5 5 0 015-5z"
-                opacity="0.5"
-              />
-              <path
-                fill="#1B234F"
-                fillRule="nonzero"
-                d="M55.79 149.99H205.79V159.99H55.79z"
-              />
-              <path
-                fill="#1B234F"
-                d="M240.42 20.3L251.93.05H.38l88.13 150h78.11l13.64-24h43.37l60-105.77-43.21.02zm-23 95h-30.79L234.46 31h30.76l-47.8 84.3z"
-              />
-            </g>
-          </g>
-        </Illustration>
+        </Main>
       </ScrollContainer>
       <BottomWave
         xmlns="http://www.w3.org/2000/svg"
