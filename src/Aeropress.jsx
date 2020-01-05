@@ -47,12 +47,15 @@ const Title = styled(motion.h2)`
   margin-top: 20px;
 
   @media (min-width: 320px) {
-    font-size: calc(45px + 16 * ((100vw - 320px) / 320));
+    font-size: calc(45px + 14 * ((100vw - 320px) / 320));
   }
 
   @media (min-width: 720px) {
     text-align: left;
-    font-size: 60px;
+  }
+
+  @media (min-width: 900px) {
+    font-size: 75px;
   }
   
   @media (min-width: 1000px) {
