@@ -15,3 +15,11 @@
   font-weight: 800;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Nostra Sett';
+  src: url('../dist/fonts/Nostrav1.0-Sett.woff2') format('woff2'),
+    url('../dist/fonts/Nostrav1.0-Sett.woff') format('woff'),
+    url('../dist/fonts/Nostrav1.0-Sett.eot') format('eot');
+  font-style: normal;
+}
