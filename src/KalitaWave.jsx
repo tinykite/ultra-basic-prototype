@@ -16,6 +16,7 @@ const Main = styled.article`
   justify-content: center;
   text-align: center;
   position: relative;
+  overflow: hidden;
 
   @media (min-width: 500px) {
     width: 80%;
@@ -31,14 +32,13 @@ const Main = styled.article`
 
   @media (min-width: 1000px) {
     grid-template-columns: 550px 1fr;
-    max-width: 1000px;
+    max-width: 900px;
     grid-column-gap: 45px;
   }
 `;
 
 const Title = styled(motion.h2)`
   font-family: 'Carmin 0.2';
-  font-size: 65px;
   color: #19224f;
   letter-spacing: 0.44px;
   text-transform: uppercase;

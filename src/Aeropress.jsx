@@ -7,10 +7,16 @@ import 'typography.css';
 const ScrollContainer = styled.div`
   background: ${props => props.background};
   margin: 0 auto;
+  position: relative;
+  padding-top: 115px;
+`;
 
-  @media (max-width: 720px) {
-    padding-bottom: 5vh;
-  }
+const WaveTop = styled(motion.svg)`
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  background: white;
 `;
 
 const Main = styled(motion.article)`
@@ -201,6 +207,16 @@ const Aeropress = ({ title, background }) => {
 
   return (
     <ScrollContainer ref={ref} background={background}>
+      <WaveTop
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 115"
+      >
+        <path
+          fill="#19224F"
+          fillRule="evenodd"
+          d="M0 0c187.992 0 165.992 58 353.984 58C541.98 58 541.98 0 729.978 0c188.006 0 188.006 58 376.011 58C1293.995 58 1251.995 0 1440 0v115H0V0z"
+        ></path>
+      </WaveTop>
       <Main>
         <Title fontStack="Barbour">
           <InnerTitleWrapper

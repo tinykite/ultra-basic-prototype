@@ -27,7 +27,7 @@ const Main = styled(motion.article)`
     align-content: center; /* Important side effect utilized here: this property also prevent rows from stretching to fill available space! */
     grid-auto-flow: dense;
     grid-column-gap: 30px;
-    max-width: 1000px;
+    max-width: 900px;
   }
 
   @media (min-width: 1000px) {
