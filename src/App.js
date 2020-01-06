@@ -13,7 +13,7 @@ function App() {
     <>
       <Hero />
       <Introduction />
-      <Interstitial title="Ultra Basic Tools" />
+      <Interstitial title="Ultra Basic Brew Methods" />
       <Aeropress
         title="Aeropress"
         fontStack="Barbour"
@@ -21,7 +21,7 @@ function App() {
       />
       <KalitaWave />
       <FrenchPress />
-      <Technique />
+      <Interstitial title="Ultra Basic Technique" />
     </>
   );
 }
