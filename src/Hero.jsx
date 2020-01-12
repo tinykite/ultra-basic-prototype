@@ -60,7 +60,15 @@ const Intro = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8vh 0;
+  padding: 4vh 0;
+
+  @media (min-width: 500px) {
+    padding: 6vh 0;
+  }
+
+  @media (min-width: 720px) {
+    padding: 8vh 0;
+  }
 `;
 
 const IntroDescription = styled.p`
