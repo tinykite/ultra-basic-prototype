@@ -16,13 +16,13 @@ const WaveBottom = styled(motion.svg)`
 const ScrollContainer = styled(motion.div)`
   background: black;
   position: relative;
+  overflow: hidden;
 
   @media (min-width: 500px) {
     margin: 0 auto;
     justify-content: center;
     display: flex;
     align-items: center;
-    overflow: hidden;
     height: 85vh;
   }
 
