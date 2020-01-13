@@ -7,6 +7,7 @@ import 'typography.css';
 const ScrollContainer = styled.div`
   background: ${props => props.background};
   margin: 0 auto;
+  overflow: hidden;
 `;
 
 const Main = styled.article`
@@ -16,7 +17,6 @@ const Main = styled.article`
   justify-content: center;
   text-align: center;
   position: relative;
-  overflow: hidden;
 
   @media (min-width: 500px) {
     width: 80%;
@@ -202,6 +202,7 @@ const KalitaWave = () => {
 
   const position = useMotionValue(0);
   position.set(getThreshold);
+  const opacity = position;
   const xRange = [0, 1];
   const skewRange = ['0.7rad', '-0.6rad'];
   const skew = useTransform(position, xRange, skewRange);
@@ -230,7 +231,7 @@ const KalitaWave = () => {
       </TopWave>
       <ScrollContainer ref={ref} background={'#fcf1f2'}>
         <Main>
-          <Title style={{ skew }}>Kalita Wave</Title>
+          <Title style={{ skew, opacity }}>Kalita Wave</Title>
           <Intro>
             A pourover device with a very flat bottom. Don't be weird.
             It's a good thing.
@@ -243,6 +244,7 @@ const KalitaWave = () => {
                 height="auto"
                 fill="none"
                 viewBox="0 0 283 224"
+                style={{ opacity }}
               >
                 <motion.path
                   animate={'play'}
@@ -254,7 +256,6 @@ const KalitaWave = () => {
                     ease: 'easeInOut',
                   }}
                   variants={alternateDrip}
-                  s
                   fill="#C6BAC9"
                   fillRule="evenodd"
                   d="M125 149c2.76 0 5 3.361 5 7.503v60.734c0 3.742-2.24 6.763-5 6.763s-5-3.001-5-6.763v-60.734c0-4.142 2.24-7.503 5-7.503zM139 136a5 5 0 015 4.999v40.486a4.78 4.78 0 01-5 4.509 4.77 4.77 0 01-5-4.509v-40.486a5 5 0 015-4.999z"
@@ -287,7 +288,7 @@ const KalitaWave = () => {
                   clipRule="evenodd"
                 ></path>
               </Kalita>
-              <Mug>
+              <Mug style={{ opacity }}>
                 <Coffee
                   animate={isIntersecting && 'play'}
                   initial={'pause'}
