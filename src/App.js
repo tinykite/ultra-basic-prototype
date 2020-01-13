@@ -7,13 +7,15 @@ import Aeropress from './Aeropress';
 import KalitaWave from './KalitaWave';
 import FrenchPress from './FrenchPress';
 import Technique from './Technique';
+import Grind from './Grind';
+import Time from './Time';
 
 function App() {
   return (
     <>
       <Hero />
       <Introduction />
-      <Interstitial title="Ultra Basic Brew Methods" />
+      <Interstitial title="Brew Methods" />
       <Aeropress
         title="Aeropress"
         fontStack="Barbour"
@@ -21,7 +23,10 @@ function App() {
       />
       <KalitaWave />
       <FrenchPress />
-      <Interstitial title="Ultra Basic Technique" />
+      <Interstitial title="Extraction 101" />
+      <Technique />
+      <Grind />
+      <Time />
     </>
   );
 }
