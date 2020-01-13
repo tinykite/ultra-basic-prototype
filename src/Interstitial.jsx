@@ -33,6 +33,10 @@ const Title = styled(motion.h2)`
 const Icon = styled(motion.svg)`
   width: 40px;
   height: auto;
+
+  @media (min-width: 720px) {
+    width: 68px;
+  }
 `;
 
 const Interstitial = ({ title }) => {
