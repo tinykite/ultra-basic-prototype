@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useOnScreen } from './hooks/useOnScreen';
 import styled from 'styled-components';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useMotionValue } from 'framer-motion';
 
 const Main = styled.div`
   display: flex;
@@ -9,43 +9,30 @@ const Main = styled.div`
   text-align: center;
   justify-content: center;
   align-items: center;
-  position: relative;
-  padding: 5vh 0;
-  min-height: 20vh;
+  padding: 8vh 0;
 
   @media (min-width: 720px) {
-    min-height: 60vh;
+    padding: 14vh 0;
   }
 `;
 
-const WaveBottom = styled(motion.svg)`
-  width: 100%;
-  height: auto;
-  position: absolute;
-  bottom: 0;
-  background: none;
-`;
-
-const WaveTop = styled(motion.svg)`
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  background: none;
-`;
-
 const Title = styled(motion.h2)`
-  position: relative;
   font-family: 'Knockout 68 A', 'Knockout 68 B';
-  font-size: 24px;
+  font-size: 50px;
   font-style: normal;
   font-weight: 400;
   text-transform: uppercase;
   line-height: 1;
+  margin-top: 1.125rem;
 
   @media (min-width: 720px) {
-    font-size: 67.2px;
+    font-size: 110px;
   }
+`;
+
+const Icon = styled(motion.svg)`
+  width: 40px;
+  height: auto;
 `;
 
 const Interstitial = ({ title }) => {
@@ -64,27 +51,28 @@ const Interstitial = ({ title }) => {
   position.set(getThreshold);
 
   return (
-    <Main>
-      {/* <WaveTop
+    <Main ref={ref}>
+      <Icon
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 115"
+        viewBox="0 0 68 88"
+        height="88"
+        width="68"
+        style={{ opacity: position }}
       >
-        <path
+        <motion.g
+          fill="none"
           fillRule="evenodd"
-          d="M0 115c187.992 0 165.992-58 353.984-58 187.996 0 187.996 58 375.994 58 188.006 0 188.006-58 376.011-58 188.006 0 146.006 58 334.011 58V0H0v115z"
-        ></path>
-      </WaveTop> */}
-      <Title>{title}</Title>
-      {/* <WaveBottom
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 115"
-      >
-        <path
-          fill="#19224F"
-          fillRule="evenodd"
-          d="M0 0c187.992 0 165.992 58 353.984 58C541.98 58 541.98 0 729.978 0c188.006 0 188.006 58 376.011 58C1293.995 58 1251.995 0 1440 0v115H0V0z"
-        ></path>
-      </WaveBottom> */}
+          stroke="#000"
+          strokeWidth="8"
+        >
+          <motion.path d="M4 4h60v80H4z" pathOffset="0 1" />
+          <motion.path d="M45 0v88" />
+          <motion.path d="M23 22v66" />
+          <motion.path d="M27 58H0" />
+          <motion.path d="M49 26H19" />
+        </motion.g>
+      </Icon>
+      <Title style={{ opacity: position }}>{title}</Title>
     </Main>
   );
 };
