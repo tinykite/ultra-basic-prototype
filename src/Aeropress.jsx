@@ -8,7 +8,10 @@ const ScrollContainer = styled.div`
   background: ${props => props.background};
   margin: 0 auto;
   position: relative;
-  /* padding-top: 115px; */
+
+  @media (max-width: 720px) {
+    padding-bottom: 4vh;
+  }
 `;
 
 const WaveTop = styled(motion.svg)`
@@ -73,7 +76,7 @@ const Intro = styled.p`
   font-family: input-mono, monospace;
   font-weight: 200;
   font-style: italic;
-  margin-top: 30px;
+  margin-top: 20px;
   line-height: 1.5;
   font-size: 14px;
   grid-column: 1 / 1;
