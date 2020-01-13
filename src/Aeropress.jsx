@@ -18,6 +18,8 @@ const WaveTop = styled(motion.svg)`
   width: 100%;
   height: auto;
   background: white;
+  position: relative;
+  top: 1px; /* TODO: Fix subpixel rendering in Firefox */
 `;
 
 const Main = styled(motion.article)`
