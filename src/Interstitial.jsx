@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useOnScreen } from './hooks/useOnScreen';
 import styled from 'styled-components';
-import { motion, useMotionValue } from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 const Main = styled.div`
   display: flex;
@@ -54,6 +54,14 @@ const Interstitial = ({ title }) => {
   const position = useMotionValue(0);
   position.set(getThreshold);
 
+  const parallax = useTransform(position, latest => latest * 1.25);
+
+  const xRange = [0, 1];
+  const driftRange = ['40%', '0%'];
+  const driftUp = useTransform(parallax, xRange, driftRange, {
+    clamp: false,
+  });
+
   return (
     <Main ref={ref}>
       <Icon
@@ -61,7 +69,7 @@ const Interstitial = ({ title }) => {
         viewBox="0 0 68 88"
         height="88"
         width="68"
-        style={{ opacity: position }}
+        style={{ opacity: position, translateY: driftUp }}
       >
         <motion.g
           fill="none"
@@ -76,7 +84,9 @@ const Interstitial = ({ title }) => {
           <motion.path d="M49 26H19" />
         </motion.g>
       </Icon>
-      <Title style={{ opacity: position }}>{title}</Title>
+      <Title style={{ opacity: position, translateY: driftUp }}>
+        {title}
+      </Title>
     </Main>
   );
 };
