@@ -6,7 +6,7 @@ import Interstitial from './Interstitial';
 import Aeropress from './Aeropress';
 import KalitaWave from './KalitaWave';
 import FrenchPress from './FrenchPress';
-import Technique from './Technique';
+import Strength from './Strength';
 import Grind from './Grind';
 import Time from './Time';
 
@@ -24,7 +24,7 @@ function App() {
       <KalitaWave />
       <FrenchPress />
       <Interstitial title="Extraction 101" />
-      <Technique />
+      <Strength />
       <Grind />
       <Time />
     </>
