@@ -125,6 +125,14 @@ const Grind = () => {
   position.set(getThreshold);
   const opacity = position;
 
+  const parallax = useTransform(position, latest => latest * 1.25);
+
+  const xRange = [0, 1];
+  const driftRange = ['0%', '-15%'];
+  const driftUp = useTransform(parallax, xRange, driftRange, {
+    clamp: false,
+  });
+
   return (
     <ScrollContainer>
       <Main ref={ref} style={{ opacity }}>
@@ -134,6 +142,7 @@ const Grind = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 135 227"
+            style={{ translateY: driftUp }}
           >
             <g fill="#394419">
               <path
