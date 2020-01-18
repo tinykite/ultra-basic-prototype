@@ -51,9 +51,8 @@ const Title = styled(motion.h2)`
   color: #ffffff;
   text-transform: uppercase;
   font-weight: normal;
-  transform: translateY(100%);
-  overflow: hidden;
   grid-column: 1 / -1;
+  overflow: hidden;
 
   @media (min-width: 320px) {
     font-size: calc(35px + 16 * ((100vw - 320px) / 320));
@@ -65,6 +64,7 @@ const Title = styled(motion.h2)`
 
   @media (min-width: 900px) {
     font-size: 60px;
+    transform: translateY(100%);
   }
 `;
 
@@ -185,19 +185,15 @@ const FrenchPress = () => {
 
   const position = useMotionValue(0);
   position.set(getThreshold);
+  const fast = useTransform(position, latest => latest * 1.25);
+  const slow = useTransform(position, latest => latest * 0.9);
 
   const xRange = [0, 1];
-  const yRange = ['70px', '-80px'];
-  const driftRange = ['100%', '0%'];
+  const yRange = ['150px', '-80px'];
+  const driftRange = ['100%', '-5%'];
   const opacity = useTransform(position, 1, 0);
-  const plungerUp = useTransform(position, xRange, yRange, {
-    clamp: false,
-    type: 'inertia',
-    velocity: 50,
-    power: 50,
-    timeConstant: 200,
-  });
-  const driftUp = useTransform(position, xRange, driftRange);
+  const plungerUp = useTransform(fast, xRange, yRange);
+  const driftUp = useTransform(slow, xRange, driftRange, {});
 
   return (
     <>
