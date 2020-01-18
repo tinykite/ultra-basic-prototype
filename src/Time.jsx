@@ -140,6 +140,14 @@ const Time = () => {
   position.set(getThreshold);
   const opacity = position;
 
+  const parallax = useTransform(position, latest => latest * 1.25);
+
+  const xRange = [0, 1];
+  const driftRange = ['0%', '-15%'];
+  const driftUp = useTransform(parallax, xRange, driftRange, {
+    clamp: false,
+  });
+
   return (
     <ScrollContainer>
       <WaveTop
@@ -155,6 +163,7 @@ const Time = () => {
       <Main ref={ref} style={{ opacity }}>
         <Illustration>
           <IllustrationItem
+            style={{ translateY: driftUp }}
             viewBox="0 0 135 217"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
