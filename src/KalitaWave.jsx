@@ -189,6 +189,11 @@ const BottomWave = styled(motion.svg)`
 
 const KalitaWave = () => {
   const ref = useRef();
+  const illustrationRef = useRef();
+
+  const illustrationOnScreen = useOnScreen(ref, 1);
+  const { isIntersecting } = illustrationOnScreen;
+
   let thresholdOptions = [];
 
   for (let step = 0; step <= 1; step = step + 0.005) {
@@ -197,7 +202,6 @@ const KalitaWave = () => {
 
   const onScreen = useOnScreen(ref, thresholdOptions);
 
-  const { isIntersecting } = onScreen;
   const { getThreshold } = onScreen;
 
   const position = useMotionValue(0);
@@ -240,53 +244,62 @@ const KalitaWave = () => {
             <IllustrationLayout>
               <Kalita
                 xmlns="http://www.w3.org/2000/svg"
-                width="350"
-                height="auto"
-                fill="none"
-                viewBox="0 0 283 224"
+                width="283"
+                height="214"
                 style={{ opacity }}
               >
-                <motion.path
-                  animate={'play'}
-                  initial={'pause'}
-                  transition={{
-                    duration: 0.5,
-                    yoyo: Infinity,
-                    repeatDelay: 4,
-                    ease: 'easeInOut',
-                  }}
-                  variants={alternateDrip}
-                  fill="#C6BAC9"
-                  fillRule="evenodd"
-                  d="M125 149c2.76 0 5 3.361 5 7.503v60.734c0 3.742-2.24 6.763-5 6.763s-5-3.001-5-6.763v-60.734c0-4.142 2.24-7.503 5-7.503zM139 136a5 5 0 015 4.999v40.486a4.78 4.78 0 01-5 4.509 4.77 4.77 0 01-5-4.509v-40.486a5 5 0 015-4.999z"
-                  clipRule="evenodd"
-                ></motion.path>
-                <motion.path
-                  animate={'play'}
-                  initial={'pause'}
-                  transition={{
-                    duration: 0.5,
-                    yoyo: Infinity,
-                    repeatDelay: 4,
-                    delay: 5,
-                    ease: 'easeInOut',
-                  }}
-                  variants={alternateDrip}
-                  fill="#C4BBC8"
-                  fillRule="evenodd"
-                  d="M111 105c2.76 0 5 3.361 5 7.503v60.734c0 3.742-2.24 6.763-5 6.763-1.84 0-1.84 0 0 0-2.76 0-5-3.001-5-6.763v-60.734c0-4.142 2.24-7.503 5-7.503zM153 98c2.76 0 5 3.361 5 7.503v60.734c0 3.742-2.24 6.763-5 6.763-1.84 0-1.84 0 0 0-2.76 0-5-3.001-5-6.763v-60.734c0-4.142 2.24-7.503 5-7.503z"
-                  clipRule="evenodd"
-                ></motion.path>
-                <path
-                  fill="#1B234F"
-                  d="M207 149H57v10h150v-10z"
-                ></path>
-                <path
-                  fill="#1B234F"
-                  fillRule="evenodd"
-                  d="M239.828 20.25L251.328 0H0l88.052 150h78.041l13.628-24h43.332L283 20.23l-43.172.02zm-22.98 95h-30.762l47.787-84.3h30.733l-47.758 84.3z"
-                  clipRule="evenodd"
-                ></path>
+                <g fill="none" fillRule="evenodd">
+                  <motion.path
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.5,
+                      flip: Infinity,
+                      repeatDelay: 0.8,
+                      ease: 'easeInOut',
+                    }}
+                    fill="#C4BBC8"
+                    d="M141 125a5 5 0 015 5v40.485a4.78 4.78 0 01-5 4.509 4.77 4.77 0 01-5-4.51V130a5 5 0 015-4.999z"
+                  />
+                  <motion.path
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{
+                      delay: 0.25,
+                      duration: 0.6,
+                      flip: Infinity,
+                      repeatDelay: 1,
+                      ease: 'easeInOut',
+                    }}
+                    fill="#C4BBC8"
+                    d="M111 141a5 5 0 015 5v40.485a4.78 4.78 0 01-5 4.509 4.77 4.77 0 01-5-4.51V146a5 5 0 015-4.999z"
+                  />
+                  <motion.path
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{
+                      delay: 1.5,
+                      duration: 0.25,
+                      flip: Infinity,
+                      repeatDelay: 1.5,
+                      ease: 'easeInOut',
+                    }}
+                    fill="#C4BBC8"
+                    d="M131 132v77.485a4.78 4.78 0 01-5 4.509 4.77 4.77 0 01-5-4.51V132a5 5 0 0110 0z"
+                  />
+                  <rect
+                    width="150"
+                    height="10"
+                    x="57"
+                    y="149"
+                    fill="#1B234F"
+                    fill-rule="nonzero"
+                  />
+                  <path
+                    fill="#1B234F"
+                    d="M251.328 0l-11.5 20.25L283 20.23 223.053 126h-43.332l-13.628 24h-78.04L0 0h251.328zm13.278 30.95h-30.733l-47.787 84.3h30.762l47.758-84.3z"
+                  />
+                </g>
               </Kalita>
               <Mug style={{ opacity }}>
                 <Coffee
