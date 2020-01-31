@@ -64,6 +64,13 @@ const Tip = styled.div`
   :not(:first-child) {
     margin-top: 3rem;
   }
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    text-decoration: none;
+  }
 `;
 
 const TipHeading = styled(motion.h2)`
