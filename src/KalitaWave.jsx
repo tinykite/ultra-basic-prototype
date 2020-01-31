@@ -306,8 +306,7 @@ const KalitaWave = () => {
                   animate={isIntersecting && 'play'}
                   initial={'pause'}
                   transition={{
-                    duration: 12,
-                    delay: 1,
+                    duration: 10,
                   }}
                   variants={brew}
                 />
