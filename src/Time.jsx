@@ -8,8 +8,8 @@ const WaveTop = styled(motion.svg)`
   width: 100%;
   height: auto;
   position: absolute;
-  top: 0;
-  background: #f6efdf;
+  top: -1px;
+  background: #f6efdf 1440px 50px no-repeat;
 `;
 
 const BottomWave = styled(motion.svg)`
@@ -34,7 +34,7 @@ const Main = styled(motion.div)`
   grid-row-gap: 24px;
 
   @media (min-width: 720px) {
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 143px 1fr;
     align-items: center;
     justify-content: center;
     align-content: center;
@@ -48,7 +48,7 @@ const Main = styled(motion.div)`
 
   @media (min-width: 1000px) {
     width: 100%;
-    grid-template-columns: 135px 550px;
+    grid-template-columns: 143px 550px;
     grid-column-gap: 60px;
   }
 `;
@@ -125,6 +125,7 @@ const StoryItem = styled(motion.p)`
 
 const Time = () => {
   const ref = useRef();
+  const illustrationRef = useRef();
   let thresholdOptions = [];
 
   for (let step = 0; step <= 1; step = step + 0.005) {
@@ -132,8 +133,9 @@ const Time = () => {
   }
 
   const onScreen = useOnScreen(ref, thresholdOptions);
+  const illustrationOnScreen = useOnScreen(illustrationRef, 1);
 
-  const { isIntersecting } = onScreen;
+  const { isIntersecting } = illustrationOnScreen;
   const { getThreshold } = onScreen;
 
   const position = useMotionValue(0);
@@ -163,91 +165,216 @@ const Time = () => {
       <Main ref={ref} style={{ opacity }}>
         <Illustration>
           <IllustrationItem
-            style={{ translateY: driftUp }}
-            viewBox="0 0 135 217"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            width="143"
+            height="230"
+            style={{ overflow: 'hidden', translateY: driftUp }}
           >
-            <path
-              d="M125.559 50.979L71.7483 50.979V60.4196L125.559 60.4196V50.979Z"
-              fill="white"
-            />
-            <path
-              d="M53.8112 50.979L0 50.979L0 60.4196L53.8112 60.4196V50.979Z"
-              fill="white"
-            />
-            <path
+            <motion.g
+              fill="#FFF"
               fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M87.3252 0.472015L87.3252 42.0105H78.8287V0.472015L87.3252 0.472015Z"
-              fill="white"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M106.364 87.7972L106.364 129.336H97.5524V87.7972H106.364Z"
-              fill="white"
-            />
-            <path
-              d="M121.783 103.951H82.1329V113.182H121.783V103.951Z"
-              fill="white"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M134.528 66.5559V111.871H126.031L126.031 66.5559H134.528Z"
-              fill="white"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M71.7483 53.8112L71.7483 111.399H63.2517L63.2517 53.8112H71.7483Z"
-              fill="white"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M71.7483 0.944031L71.7483 58.5314H63.2517L63.2517 0.944031L71.7483 0.944031Z"
-              fill="white"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M134.528 122.255V216.661H126.031V122.255H134.528Z"
-              fill="white"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M118.007 121.783V188.811H109.51V121.783H118.007Z"
-              fill="white"
-            />
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+            >
+              <motion.g data-group="one">
+                <motion.rect
+                  data-orientation="horizontal"
+                  x="0"
+                  y="54"
+                  height="10"
+                  width="57"
+                  initial={{
+                    scaleX: 4,
+                    translateX: '-50%',
+                    translateY: '-25%',
+                  }}
+                  animate={
+                    isIntersecting && {
+                      scaleX: 1,
+                      translateX: 0,
+                      translateY: 0,
+                    }
+                  }
+                  transition={{
+                    duration: 2,
+                    delay: 1,
+                  }}
+                  style={{ originX: 1 }}
+                />
+                <motion.rect
+                  data-orientation="horizontal"
+                  initial={{
+                    scaleX: 4,
+                    translateX: '110%',
+                    translateY: '-50%',
+                  }}
+                  animate={
+                    isIntersecting && {
+                      scaleX: 1,
+                      translateX: 0,
+                      translateY: 0,
+                    }
+                  }
+                  transition={{
+                    originX: 0,
+                    duration: 1,
+                    delay: 1,
+                  }}
+                  x="75"
+                  y="54"
+                  height="10"
+                  width="57"
+                />
+                <motion.rect
+                  data-orientation="vertical"
+                  initial={{ translateY: '-50%', scaleY: 0 }}
+                  animate={
+                    isIntersecting && {
+                      translateY: 0,
+                      scaleY: 1,
+                    }
+                  }
+                  transition={{ duration: 2 }}
+                  style={{ originY: 0 }}
+                  x="83"
+                  y="0"
+                  height="45"
+                  width="10"
+                />
+                <motion.rect
+                  data-orientation="vertical"
+                  initial={{ translateY: '-100%', scaleY: 2 }}
+                  animate={
+                    isIntersecting && {
+                      translateY: 0,
+                      scaleY: 1,
+                    }
+                  }
+                  transition={{ duration: 2 }}
+                  x="65"
+                  y="0"
+                  height="120"
+                  width="10"
+                />
+              </motion.g>
+
+              <motion.rect
+                data-orientation="vertical"
+                initial={{ translateY: '-75%', scaleY: 1.5 }}
+                animate={
+                  isIntersecting && { translateY: 0, scaleY: 1 }
+                }
+                transition={{ duration: 1 }}
+                x="133"
+                y="75"
+                width="10"
+                height="45"
+              />
+              <motion.g>
+                <motion.rect
+                  data-orientation="vertical"
+                  initial={{ translateY: '-75%', scaleY: 0 }}
+                  animate={
+                    isIntersecting && {
+                      translateY: 0,
+                      scaleY: 1,
+                    }
+                  }
+                  transition={{ duration: 2 }}
+                  x="100"
+                  y="94"
+                  width="10"
+                  height="42"
+                />
+                <motion.rect
+                  data-orientation="horizontal"
+                  initial={{
+                    scaleX: 3,
+                    translateX: '75%',
+                    translateY: '-50%',
+                  }}
+                  animate={
+                    isIntersecting && {
+                      scaleX: 1,
+                      translateX: 0,
+                      translateY: 0,
+                    }
+                  }
+                  transition={{
+                    duration: 1,
+                    delay: 1.25,
+                  }}
+                  x="84"
+                  y="110"
+                  width="42"
+                  height="10"
+                />
+              </motion.g>
+              <motion.g>
+                <motion.rect
+                  data-orientation="vertical"
+                  initial={{ translateY: '-100%' }}
+                  animate={isIntersecting && { translateY: 0 }}
+                  transition={{
+                    duration: 1,
+                    delay: 1,
+                  }}
+                  x="115"
+                  y="129"
+                  width="10"
+                  height="70"
+                />
+                <motion.rect
+                  data-orientation="vertical"
+                  initial={{ translateY: '-75%', scaleY: 0 }}
+                  animate={
+                    isIntersecting && {
+                      translateY: 0,
+                      scaleY: 1,
+                    }
+                  }
+                  transition={{
+                    duration: 1,
+                    delay: 1,
+                  }}
+                  style={{ originY: 1 }}
+                  x="133"
+                  y="129"
+                  width="10"
+                  height="100"
+                />
+              </motion.g>
+            </motion.g>
           </IllustrationItem>
         </Illustration>
         <Title>3. Time</Title>
         <Story>
-          <StoryItem>
-            In high school I thought that strong coffee was the kind
-            of thing that punched you in the face and made you speak
-            like a Hemingway novel.
-          </StoryItem>
-          <StoryItem>
-            And to credit my heart-on-sleeve teenage self, it does
-            heavily influence our perception of flavor. But the term
-            doesn't accurately qualify how aggressively macho (or even
-            how long) something was brewed.{' '}
-          </StoryItem>
-          <StoryItem>
-            Strength is predominantly determined, before brewing, by
-            the ratio of coffee to hot water that you use: and for
-            adequately "strong" coffee, coffee educators typically
-            recommend staying between 1:15 and 1:17.
+          <StoryItem ref={illustrationRef}>
+            Time is a key variable in coercing quality coffee flavor.
+            And maybe not even as much as you think — a perfectly
+            sweet cup of coffee might only contain 18-22% of the
+            initial mass of the coffee grounds.
           </StoryItem>
           <StoryItem>
             <em>
-              For 8oz of coffee (using a 1:15 ratio), that means a
-              dose of approximately ~15 grams of beans.
+              {' '}
+              Nerd alert: this is typically referred to as TDS, or
+              Total Dissolved Solids.
             </em>
+          </StoryItem>
+          <StoryItem>
+            With a percolator, time is a pretty static constant. Brew
+            too long and your coffee will be gross, yadda yadda! But
+            if you're feeling adventurous, how you brew coffee — and
+            at what time — can also become a key creative aspect of
+            your coffee game.
+          </StoryItem>
+          <StoryItem>
+            For inspiration, I love checking out the recipes on the
+            World Aeropress Championship website — which catalogues
+            the recipes of each of its top three contenders every
+            year.
           </StoryItem>
         </Story>
       </Main>
