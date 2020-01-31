@@ -1,25 +1,25 @@
 @font-face {
   font-family: 'Barbour';
-  src: url('../dist/fonts/barbour-webfont.woff2') format('woff2'),
-    url('../dist/fonts/barbour-webfont.woff') format('woff'),
-    url('../dist/fonts/barbour-webfont.eot') format('eot'),
-    url('../dist/fonts/barbour-webfont.ttf') format('ttf');
+  src: url('barbour-webfont.woff2') format('woff2'),
+    url('barbour-webfont.woff') format('woff'),
+    url('barbour-webfont.eot') format('eot'),
+    url('barbour-webfont.ttf') format('ttf');
 }
 
 @font-face {
   font-family: 'Carmin 0.2';
-  src: url('../dist/fonts/Carmin0.2-ExtraBold.eot');
-  src: url('../dist/fonts/Carmin0.2-ExtraBold.woff2') format('woff2'),
-    url('../dist/fonts/Carmin0.2-ExtraBold.woff') format('woff'),
-    url('../dist/fonts/Carmin0.2-ExtraBold.svg') format('svg');
+  src: url('Carmin0.2-ExtraBold.eot');
+  src: url('Carmin0.2-ExtraBold.woff2') format('woff2'),
+    url('Carmin0.2-ExtraBold.woff') format('woff'),
+    url('Carmin0.2-ExtraBold.svg') format('svg');
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Nostra Sett';
-  src: url('../dist/fonts/Nostrav1.0-Sett.woff2') format('woff2'),
-    url('../dist/fonts/Nostrav1.0-Sett.woff') format('woff'),
-    url('../dist/fonts/Nostrav1.0-Sett.eot') format('eot');
+  src: url('Nostrav1.0-Sett.woff2') format('woff2'),
+    url('Nostrav1.0-Sett.woff') format('woff'),
+    url('Nostrav1.0-Sett.eot') format('eot');
   font-style: normal;
 }

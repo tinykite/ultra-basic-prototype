@@ -9,6 +9,7 @@ import FrenchPress from './FrenchPress';
 import Strength from './Strength';
 import Grind from './Grind';
 import Time from './Time';
+import Tips from './Tips';
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
       <Strength />
       <Grind />
       <Time />
+      <Interstitial title="Ultra Basic Next Steps" />
+      <Tips />
     </>
   );
 }
